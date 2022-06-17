@@ -45,7 +45,7 @@ def CAP_table(pred, true, stepsize, n):
     # n = combien de quantiles
     # par exemple : n=4 et stepsize=5 signifie chaque 5% jusqu'à 20%)
 
-    DF = pd.concat([true, pred], axis = 1).reset_index()[[1,2]]
+    DF = pd.concat([true, pred], axis = 1).reset_index(drop=True)
     DF.columns = [ 'T', 'Prob']
     DF = DF.sort_values('Prob', ascending = False)
     DF.index = np.arange(1, len(DF)+1)
@@ -88,3 +88,44 @@ def CAP_table(pred, true, stepsize, n):
                '% positifs cumulés sur le total des positifs', 'Lift']]
     
     return(Data)
+
+
+import numpy as np
+from sklearn.metrics import confusion_matrix
+def plot_confusion_matrix(y_true, y_pred, classes,                       
+                          title=None,
+                          cmap=plt.cm.Blues):
+   
+    # Compute confusion matrix
+    cm = confusion_matrix(y_true, y_pred)
+    # Only use the labels that appear in the data
+    print(cm)
+    cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+    print(cm)
+
+    fig, ax = plt.subplots()
+    im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
+    ax.figure.colorbar(im, ax=ax)
+    # We want to show all ticks...
+    ax.set(xticks=np.arange(cm.shape[1]),
+           yticks=np.arange(cm.shape[0]),
+           # ... and label them with the respective list entries
+           xticklabels=classes, yticklabels=classes,
+           title=title,
+           ylabel='Variable cible observé',
+           xlabel='Variable cible prédite')
+
+    # Rotate the tick labels and set their alignment.
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+             rotation_mode="anchor")
+
+    # Loop over data dimensions and create text annotations.
+    fmt = '.2f'
+    thresh = cm.max() / 2.
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(j, i, format(cm[i, j], fmt),
+                    ha="center", va="center",
+                    color="white" if cm[i, j] > thresh else "black")
+    fig.tight_layout()
+    return ax
