@@ -1,3 +1,4 @@
+*.pydata
 *.ipynb_checkpoints*
 *.h5
 *__pycache__*
