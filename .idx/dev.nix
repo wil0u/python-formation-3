@@ -17,16 +17,21 @@
       "ms-python.python"
     ];
     workspace = {
-      # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
         create-venv = ''
-          python -m venv .venv
-          source .venv/bin/activate
-          pip install -r requirements.txt
+          python -m venv .venv --without-pip
+          .venv/bin/python -m ensurepip
+          .venv/bin/python -m pip install --upgrade pip setuptools wheel
+          if [ -f requirements.txt ]; then
+            .venv/bin/pip install -r requirements.txt
+          fi
         '';
       };
-      # To run something each time the workspace is (re)started, use the `onStart` hook
+      onStart = {
+        activate-venv = "source .venv/bin/activate";
+      };
     };
+
     # Enable previews and customize configuration
     previews = {};
   };
