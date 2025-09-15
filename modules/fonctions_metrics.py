@@ -58,8 +58,8 @@ def CAP_table(pred, true, stepsize, n):
         
         p_upp = (i*stepsize)/100.0
         p_low = ((i-1)*stepsize)/100.0
-        q_upp = np.int(round(All*p_upp,0))
-        q_low = np.int(round(All*p_low,0))
+        q_upp = int(round(All*p_upp,0))
+        q_low = int(round(All*p_low,0))
         
         # take the part from q_low to q_upp
         data = DF.iloc[q_low:q_upp]
