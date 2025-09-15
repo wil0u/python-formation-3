@@ -1,0 +1,75 @@
+### Caractéristiques du bien et du terrain
+
+- MSSubClass : Type de logement (plain-pied, 2 étages, duplex, lotissement, etc.)
+- MSZoning : Zonage (agricole, résidentiel faible/moyen/forte densité, commercial, industriel, etc.)
+- LotFrontage : Façade du terrain (longueur en pieds)
+- LotArea : Surface du terrain (pieds²)
+- Street / Alley : Type d’accès (route ou ruelle, pavée ou gravier)
+- LotShape : Forme du terrain (régulier, irrégulier)
+- LandContour : Relief du terrain (plat, pente, surélevé, dépression)
+
+
+
+### Utilities : Services disponibles (eau, gaz, électricité, égout)
+
+- LotConfig : Configuration (intérieur, coin, impasse, façade multiple)
+- LandSlope : Pente (faible, modérée, forte)
+- Neighborhood : Quartier dans la ville d’Ames
+- Condition1 / Condition2 : Proximité de voies ferrées, rues principales, parcs, etc.
+
+
+
+### Caractéristiques du bâtiment
+
+- BldgType : Type d’habitation (individuelle, jumelée, duplex, maison de ville, etc.)
+- HouseStyle : Style (plain-pied, 2 étages, split-level, etc.)
+- OverallQual : Qualité générale (matériaux et finitions, échelle 1–10)
+- OverallCond : État général (1–10)
+- YearBuilt / YearRemodAdd : Année de construction / rénovation
+- RoofStyle / RoofMatl : Style et matériau du toit
+- Exterior1st / Exterior2nd : Revêtement extérieur (brique, bois, vinyle, etc.)
+- MasVnrType / MasVnrArea : Type et surface du parement en maçonnerie
+- Foundation : Type de fondation (béton coulé, bloc, pierre, etc.)
+- ExterQual / ExterCond : Qualité et état de l’extérieur
+
+
+
+### Sous-sol et surfaces habitables
+
+- BsmtQual / BsmtCond : Qualité et état du sous-sol
+- BsmtExposure : Présence de murs semi-enterrés / jardin
+- BsmtFinType1/2 : Type de sous-sol aménagé
+- BsmtFinSF1/2 / BsmtUnfSF / TotalBsmtSF : Surfaces du sous-sol (finies ou non)
+- 1stFlrSF / 2ndFlrSF / GrLivArea : Surface habitable par étage / totale hors sol
+- LowQualFinSF : Surface habitable de mauvaise qualité
+
+
+
+### Installations intérieures
+- Heating / HeatingQC : Type de chauffage et qualité
+- CentralAir : Climatisation centrale (Oui/Non)
+- Electrical : Type d’installation électrique
+- FullBath / HalfBath / BsmtFullBath / BsmtHalfBath : Nombre de salles de bain
+- Bedroom / Kitchen / KitchenQual : Chambres, cuisines et qualité de la cuisine
+- TotRmsAbvGrd : Nombre total de pièces (hors sdb)
+- Functional : Fonctionnalité globale de la maison
+- Fireplaces / FireplaceQu : Nombre et qualité des cheminées
+
+
+
+### Garage et annexes
+- GarageType / GarageYrBlt / GarageFinish : Type, année et finition du garage
+- GarageCars / GarageArea : Capacité et surface du garage
+- GarageQual / GarageCond : Qualité et état du garage
+- PavedDrive : Allée pavée (oui/non/partielle)
+- WoodDeckSF / OpenPorchSF / EnclosedPorch / 3SsnPorch / ScreenPorch : Surfaces des terrasses et porches
+- PoolArea / PoolQC : Piscine et qualité
+- Fence : Type de clôture
+- MiscFeature / MiscVal : Autres équipements (abri, court de tennis, etc.) et valeur
+
+
+
+### Vente
+- MoSold / YrSold : Mois et année de vente
+- SaleType : Type de vente (acte classique, succession, construction neuve, contrat, etc.)
+- SaleCondition : Condition de la vente (normale, anormale, terrain attenant, famille, etc.)
